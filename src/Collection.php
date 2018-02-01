@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Amo\Collection;
 
@@ -96,7 +97,12 @@ class Collection extends ArrayCollection
             return static::make($items);
         }
 
+        // @codeCoverageIgnoreStart
+        // Only happens when $items is not an array or PHP internal error
+        // That really tricky to test
         throw new \RuntimeException('Failed to sort the collection with given sorting function');
+        // @codeCoverageIgnoreEnd
+
     }
 
     /**
