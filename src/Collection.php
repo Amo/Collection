@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Collection extends ArrayCollection
 {
     /**
+     * Static instantiation,
+     * useful for instantiation followed directly by chained syntax.
+     *
      * @param array $elements
      *
      * @return Collection
@@ -19,9 +22,9 @@ class Collection extends ArrayCollection
 
     /**
      * Execute a callback over each item.
-     * Only stops if the closure returns explicitly false
+     * Only stops if the closure returns explicitly false.
      * Unlike ArrayCollection::forAll that interrupts if the closure
-     * returns anything evaluated to false
+     * returns anything evaluated to false.
      *
      * @param  \Closure $callback
      *
@@ -72,7 +75,7 @@ class Collection extends ArrayCollection
     }
 
     /**
-     * Creates a copy of the currrent Collection
+     * Creates a copy of the current Collection.
      *
      * @return Collection
      */
@@ -110,7 +113,7 @@ class Collection extends ArrayCollection
      *
      * @return Collection
      */
-    public function slice($offset, $length = null)
+    public function slice($offset, $length = null): Collection
     {
         return static::make(parent::slice($offset, $length));
     }
