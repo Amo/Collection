@@ -1,0 +1,11 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: ["sh", "-lc", "while true; do sleep 1000; done"]
+    stdin_open: true
+    tty: true
